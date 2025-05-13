@@ -14,7 +14,7 @@ export const CountrySelectApi: React.FC<CountrySelectProps> = ({ callBack, label
   const handleCallBack = (event: any) => {
     const selectedCountry = findByAlpha2(event.target.value);
     if (!selectedCountry) return;
-    callBack(selectedCountry);
+    callBack?.(selectedCountry);
   };
 
   return (

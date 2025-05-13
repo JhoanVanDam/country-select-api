@@ -3,7 +3,7 @@ import type { LanguageCode } from "./language-code";
 import type { CountryDataProps } from "./country-data-props";
 
 export interface CountrySelectProps {
-  callBack: (value: CountryDataProps) => void;
+  callBack?: (value: CountryDataProps) => void;
   label?: string;
   language: LanguageCode;
   selectedCountryCode?: string;
