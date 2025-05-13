@@ -5,7 +5,11 @@ function App() {
   const handleGetCountry = (value?: CountryProps) => {};
   return (
     <>
-      <CountrySelect label="Pais" callBack={handleGetCountry} />
+      <CountrySelect
+        language="en"
+        label="Depilate"
+        callBack={handleGetCountry}
+      />
     </>
   );
 }
