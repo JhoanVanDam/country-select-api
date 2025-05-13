@@ -1,9 +1,7 @@
 .select-container {
-  position: relative;
-  width: 100%;
-  max-width: 300px;
-  margin: 1rem 0;
-  font-family: "Inter", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .floating-label {
