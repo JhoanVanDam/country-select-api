@@ -1,15 +1,26 @@
-import CountrySelect from "./country-select";
-import type { CountryProps } from "./types/country-props";
+import CountrySelectApi from "./country-select";
+import type { CountryDataProps } from "./types/country-data-props";
+import type { CustomizedSelectProps } from "./types/country-select-props";
 
 function App() {
-  const handleGetCountry = (value?: CountryProps) => {};
+  const handleGetCountry = (value?: CountryDataProps) => {};
+
+  const CustomSelect = ({ countryList, language }: CustomizedSelectProps) => {
+    return (
+      <select className="modern-select">
+        <option value="">Select a country</option>
+        {countryList.map((country, index) => (
+          <option key={index} value={country.code}>
+            {country.label} {language}
+          </option>
+        ))}
+      </select>
+    );
+  };
+
   return (
     <>
-      <CountrySelect
-        language="en"
-        label="Depilate"
-        callBack={handleGetCountry}
-      />
+      <CountrySelectApi language="en" label="Depilate" callBack={handleGetCountry} customizedSelect={CustomSelect} selectedCountryCode="af" />
     </>
   );
 }

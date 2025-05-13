@@ -9,6 +9,9 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "prettier": {
+    "printWidth": 160
+  },
   "dependencies": {
     "react": "^19.1.0",
     "react-dom": "^19.1.0"

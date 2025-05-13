@@ -4,21 +4,11 @@ import type { CountrySelectProps } from "./types/country-select-props";
 import { countryCodeToFlagEmoji } from "./util/code-to-flag";
 import { useCountries } from "./hooks/data-country-hook";
 
-export const CountrySelect: React.FC<CountrySelectProps> = ({
-  callBack,
-  label = "Select a country",
-  selectedCountryCode,
-  language,
-  customizedSelect,
-}) => {
+export const CountrySelectApi: React.FC<CountrySelectProps> = ({ callBack, label = "Select a country", selectedCountryCode, language, customizedSelect }) => {
   const { findByAlpha2, countryList } = useCountries(language);
 
   if (customizedSelect) {
-    return customizedSelect({
-      callBack,
-      selectedCountryCode,
-      language,
-    });
+    return customizedSelect({ countryList, language });
   }
 
   const handleCallBack = (event: any) => {
@@ -30,16 +20,11 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
   return (
     <div className="select-container">
       <label className={`floating-label`}>{label}</label>
-      <select onChange={handleCallBack} className="modern-select">
+      <select defaultValue={selectedCountryCode} onChange={handleCallBack} className="modern-select">
         <option value="">Select a country</option>
         {countryList.map((country, index) => (
-          <option
-            key={index}
-            value={country.code}
-            selected={country.code === selectedCountryCode}
-          >
-            <span>{countryCodeToFlagEmoji(country.code)}</span>
-            {country.label}
+          <option key={index} value={country.code}>
+            {country.label} {countryCodeToFlagEmoji(country.code)}
           </option>
         ))}
       </select>
@@ -47,4 +32,4 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
   );
 };
 
-export default CountrySelect;
+export default CountrySelectApi;

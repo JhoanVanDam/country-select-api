@@ -1,11 +1,17 @@
 import type { JSX } from "react";
-import type { CountryProps } from "./country-props";
 import type { LanguageCode } from "./language-code";
+import type { CountryDataProps } from "./country-data-props";
 
 export interface CountrySelectProps {
-  callBack: (value: CountryProps) => void;
+  callBack: (value: CountryDataProps) => void;
   label?: string;
   language: LanguageCode;
   selectedCountryCode?: string;
-  customizedSelect?: (props: CountrySelectProps) => JSX.Element;
+
+  customizedSelect?: (props: CustomizedSelectProps) => JSX.Element;
+}
+
+export interface CustomizedSelectProps {
+  countryList: CountryDataProps[];
+  language: LanguageCode;
 }
