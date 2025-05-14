@@ -1,10 +1,11 @@
 {
   "name": "country-select-api",
   "private": false,
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "A customizable multilingual country select component for React with emoji flags.",
   "license": "MIT",
   "type": "module",
+  "main": "dist/country-select-api.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
