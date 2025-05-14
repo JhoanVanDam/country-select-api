@@ -1,4 +1,4 @@
 import "./index.css";
 
 export { default as CountrySelect } from "./country-select";
-export type { CountrySelectProps } from "./country-select-props";
+export type { CountrySelectProps } from "./types/country-select-props";

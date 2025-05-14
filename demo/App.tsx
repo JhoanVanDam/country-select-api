@@ -1,6 +1,6 @@
-import CountrySelectApi from "./country-select";
-import type { CountryDataProps } from "./types/country-data-props";
-import type { CustomizedSelectProps } from "./types/country-select-props";
+import CountrySelectApi from "../src/country-select";
+import type { CountryDataProps } from "../src/types/country-data-props";
+import type { CustomizedSelectProps } from "../src/types/country-select-props";
 
 function App() {
   const handleGetCountry = (value?: CountryDataProps) => {};
