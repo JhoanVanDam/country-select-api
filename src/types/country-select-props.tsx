@@ -6,7 +6,7 @@ export interface CountrySelectProps {
   callBack?: (value: CountryDataProps) => void;
   label?: string;
   language: LanguageCode;
-  selectedCountryCode?: LanguageCode;
+  selectedCountryCode?: string;
 
   customizedSelect?: (props: CustomizedSelectProps) => JSX.Element;
 }
