@@ -1,54 +1,132 @@
-# React + TypeScript + Vite
+# 🌍 country-select-api
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**A customizable multilingual country select component for React with emoji flags.**
 
-Currently, two official plugins are available:
+This library provides a simple and elegant country selector with support for internationalized labels, emoji flags, and full customization via React components.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![demo](https://user-images.githubusercontent.com/your-image-url-if-any.gif)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ✨ Features
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- 🌐 Multi-language country labels
+- 🏳️ Emoji flags for countries
+- ⚛️ React-based component
+- 🎨 Supports full UI customization
+- 📦 Lightweight and easy to use
+
+---
+
+## 📦 Installation
+
+```bash
+npm install country-select-api
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+or with pnpm:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+pnpm add country-select-api
 ```
+
+---
+
+## 🚀 Usage
+
+```tsx
+import React from "react";
+import { CountrySelect } from "country-select-api";
+
+const App = () => {
+  return <CountrySelect language="en" callBack={(selectedCountry) => console.log(selectedCountry)} selectedCountryCode="US" />;
+};
+
+export default App;
+```
+
+---
+
+## ⚙️ Props
+
+| Prop                  | Type                                                | Required | Description                                                  |
+| --------------------- | --------------------------------------------------- | -------- | ------------------------------------------------------------ |
+| `language`            | `LanguageCode` (e.g., `"en"`, `"es"`, etc.)         | ✅       | Language code for country labels.                            |
+| `selectedCountryCode` | `string`                                            | ❌       | Two-letter country code to preselect (e.g., `"US"`).         |
+| `label`               | `string`                                            | ❌       | Label for the select field. Default: `"Select a country"`.   |
+| `callBack`            | `(value: CountryDataProps) => void`                 | ❌       | Callback when a country is selected.                         |
+| `customizedSelect`    | `(props: { countryList, language }) => JSX.Element` | ❌       | Render your own custom select UI. Overrides the default one. |
+
+---
+
+## 🌐 Supported Languages
+
+Supports over **40 languages** including:
+
+`en`, `es`, `fr`, `de`, `it`, `zh`, `ar`, `ja`, `ko`, `pt`, `ru`, `tr`, `sv`, `fi`, `nl`, `pl`, and more.
+
+---
+
+## 🧱 Advanced Customization
+
+You can fully replace the default UI using the `customizedSelect` prop:
+
+```tsx
+<CountrySelect
+  language="fr"
+  customizedSelect={({ countryList }) => (
+    <ul>
+      {countryList.map((c) => (
+        <li key={c.code}>{c.label}</li>
+      ))}
+    </ul>
+  )}
+/>
+```
+
+---
+
+## 📁 Folder Structure (Simplified)
+
+```
+src/
+├── country-select.tsx       # Main component
+├── data/
+│   └── world.json           # Country data with translations
+├── hooks/
+│   └── data-country-hook.tsx
+├── types/
+│   ├── country-data-props.tsx
+│   ├── country-select-props.tsx
+│   └── language-code.tsx
+├── util/
+│   └── code-to-flag.tsx     # Flag emoji utility
+```
+
+---
+
+## 🧪 Example of `CountryDataProps`
+
+```ts
+{
+  id: 840,
+  code: "US",
+  code2: "USA",
+  label: "United States"
+}
+```
+
+---
+
+## 📜 License
+
+MIT © [Jhoan Hernández](https://github.com/JhoanVanDam)
+
+---
+
+## 🛠 Built with
+
+- ⚛️ React 19
+- 🧩 TypeScript
+- ⚡ Vite
+- 📏 ESLint
