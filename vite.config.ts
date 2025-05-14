@@ -8,7 +8,8 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
       name: "CountrySelect",
-      fileName: "country-select",
+      formats: ["es"],
+      fileName: () => `country-select.js`,
     },
     rollupOptions: {
       external: ["react", "react-dom"],
