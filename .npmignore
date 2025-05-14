@@ -1,0 +1,8 @@
+demo/
+*.gif
+*.mp4
+*.mov
+*.psd
+*.zip
+.vscode/
+README-assets/
