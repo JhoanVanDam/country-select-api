@@ -4,7 +4,7 @@
 
 This library provides a simple and elegant country selector with support for internationalized labels, emoji flags, and full customization via React components.
 
-![demo](https://user-images.githubusercontent.com/your-image-url-if-any.gif)
+![demo](https://github.com/JhoanVanDam/country-select-api/blob/mui-demo/demo/select-country-api-demo.gif)
 
 ---
 
@@ -120,7 +120,7 @@ src/
 
 ## 📜 License
 
-MIT © [Jhoan Hernández](https://github.com/JhoanVanDam)
+MIT © [JhoanVanDam](https://github.com/JhoanVanDam)
 
 ---
 
