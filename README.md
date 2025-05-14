@@ -35,6 +35,18 @@ pnpm add country-select-api
 ## 🚀 Usage
 
 ```tsx
+import { useCountries } from "country-select-api";
+
+const { countryList, findByAlpha2, codeToFlag } = useCountries("en");
+
+console.log(countryList); // All countries with labels in English
+console.log(findByAlpha2("US")); // Single country by code
+console.log(codeToFlag("US")); // 🇺🇸
+```
+
+---
+
+```tsx
 import React from "react";
 import { CountrySelect } from "country-select-api";
 
@@ -43,6 +55,37 @@ const App = () => {
 };
 
 export default App;
+```
+
+---
+
+---
+
+## 📚 Real-world Example with MUI
+
+```tsx
+import { Autocomplete, TextField } from "@mui/material";
+import { useCountries } from "country-select-api";
+import { useLanguageStore } from "global/stores/language-store";
+
+export const CountrySelect = () => {
+  const { language } = useLanguageStore();
+  const { countryList, codeToFlag } = useCountries(language);
+
+  const handleChange = (_: any, value: any) => {
+    console.log(value);
+  };
+
+  return (
+    <Autocomplete
+      options={countryList}
+      getOptionLabel={(option) => `${codeToFlag(option.code)} ${option.label}`}
+      onChange={handleChange}
+      renderInput={(params) => <TextField {...params} label="Country" placeholder="Select the country" />}
+      sx={{ width: "100%" }}
+    />
+  );
+};
 ```
 
 ---
