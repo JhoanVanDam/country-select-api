@@ -3,13 +3,11 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Node",
+    "strict": true,
+    "resolveJsonModule": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",
-    "types": ["node"]
+    "baseUrl": "."
   },
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "include": ["src"]
 }

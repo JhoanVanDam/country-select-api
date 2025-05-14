@@ -1,4 +1,4 @@
-import CountrySelectApi from "../src/country-select";
+import CountrySelectApi from "../src/components/country-select";
 import type { CountryDataProps } from "../src/types/country-data-props";
 import type { CustomizedSelectProps } from "../src/types/country-select-props";
 

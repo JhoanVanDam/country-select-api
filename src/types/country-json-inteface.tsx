@@ -1,4 +1,4 @@
-export interface CountryProps {
+export interface CountryJsonProps {
   id: number;
   alpha2: string;
   alpha3: string;

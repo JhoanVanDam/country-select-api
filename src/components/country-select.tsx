@@ -1,8 +1,8 @@
 import React from "react";
-import "./index.css";
-import type { CountrySelectProps } from "./types/country-select-props";
-import { countryCodeToFlagEmoji } from "./util/code-to-flag";
-import { useCountries } from "./hooks/data-country-hook";
+import "../index.css";
+import type { CountrySelectProps } from "../types/country-select-props";
+import { countryCodeToFlagEmoji } from "../util/code-to-flag";
+import useCountries from "../hooks/data-country-hook";
 
 export const CountrySelectApi: React.FC<CountrySelectProps> = ({ callBack, label = "Select a country", selectedCountryCode, language, customizedSelect }) => {
   const { findByAlpha2, countryList } = useCountries(language);
