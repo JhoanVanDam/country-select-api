@@ -1,11 +1,10 @@
 import React from "react";
 import "../index.css";
 import type { CountrySelectProps } from "../types/country-select-props";
-import { countryCodeToFlagEmoji } from "../util/code-to-flag";
 import useCountries from "../hooks/data-country-hook";
 
 export const CountrySelectApi: React.FC<CountrySelectProps> = ({ callBack, label = "Select a country", selectedCountryCode, language, customizedSelect }) => {
-  const { findByAlpha2, countryList } = useCountries(language);
+  const { findByAlpha2, countryList, codeToFlag } = useCountries(language);
 
   if (customizedSelect) {
     return customizedSelect({ countryList, language });
@@ -24,7 +23,7 @@ export const CountrySelectApi: React.FC<CountrySelectProps> = ({ callBack, label
         <option value="">Select a country</option>
         {countryList.map((country, index) => (
           <option key={index} value={country.code}>
-            {country.label} {countryCodeToFlagEmoji(country.code)}
+            {country.label} {codeToFlag(country.code)}
           </option>
         ))}
       </select>
