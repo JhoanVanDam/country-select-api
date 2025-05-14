@@ -34,4 +34,5 @@ export type LanguageCode =
   | "tr"
   | "uk"
   | "zh"
-  | "zh-tw";
+  | "zh-tw"
+  | null;
