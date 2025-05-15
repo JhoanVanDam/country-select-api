@@ -3,16 +3,19 @@ import { CountryJsonProps } from "src/types/country-json-inteface";
 import countries from "../data/world.json";
 import type { CountryDataProps } from "../types/country-data-props";
 import type { LanguageCode } from "../types/language-code";
+import { useMemo } from "react";
 
 export default function useCountries(language: LanguageCode) {
-  const countryList: CountryDataProps[] = countries.map(
-    (country: CountryJsonProps): CountryDataProps => ({
-      id: country.id,
-      code: country.alpha2,
-      code2: country.alpha3,
-      label: country[language] ?? country.en,
-    })
-  );
+  const countryList: CountryDataProps[] = useMemo(() => {
+    return countries.map(
+      (country: CountryJsonProps): CountryDataProps => ({
+        id: country.id,
+        code: country.alpha2,
+        code2: country.alpha3,
+        label: country[language] ?? country.en,
+      })
+    );
+  }, [language]);
 
   const findByAlpha2 = (code: string): CountryDataProps | undefined => {
     const country = countries.find((country: CountryJsonProps) => country.alpha2 === code);
